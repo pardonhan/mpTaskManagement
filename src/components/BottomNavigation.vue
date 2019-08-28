@@ -4,19 +4,22 @@
       <div class="bottomNavigation_li_content">
         <div class="bottomNavigation_li_public_content"  @click="publicClick('/')">
           <img :src="imagesUrl.homeIcon" alt="">
-          <div :class="imagesUrl.homeIcon.indexOf('click_home') === -1 ? 'no_select' : 'select' ">任务</div>
+          <div :class="imagesUrl.homeIcon.indexOf('task_b') === -1 ? 'no_select' : 'select' ">任务</div>
         </div>
         <div class="bottomNavigation_li_public_content" @click="publicClick('/collection')">
           <img :src="imagesUrl.rechargeIcon" alt="">
-          <div :class="imagesUrl.rechargeIcon.indexOf('click_recharge') === -1 ? 'no_select' : 'select' ">统计</div>
+          <div :class="imagesUrl.rechargeIcon.indexOf('collection_b') === -1 ? 'no_select' : 'select' ">统计</div>
+        </div>
+        <div class="bottomNavigation_li_public_content" @click="publicClick('/addTask')">
+          <img class="add_task" :src="imagesUrl.addTask" alt="">
         </div>
         <div class="bottomNavigation_li_public_content" @click="publicClick('/team')">
           <img :src="imagesUrl.moreIcon" alt="">
-          <div :class="imagesUrl.moreIcon.indexOf('click_more') === -1 ? 'no_select' : 'select' ">团队</div>
+          <div :class="imagesUrl.moreIcon.indexOf('team_b') === -1 ? 'no_select' : 'select' ">团队</div>
         </div>
         <div class="bottomNavigation_li_public_content" @click="publicClick('/my')">
           <img :src="imagesUrl.myIcon" alt="">
-          <div :class="imagesUrl.myIcon.indexOf('click_my') === -1 ? 'no_select' : 'select' ">我的</div>
+          <div :class="imagesUrl.myIcon.indexOf('my_b') === -1 ? 'no_select' : 'select' ">我的</div>
         </div>
       </div>
     </div>
@@ -28,10 +31,11 @@
         data() {
             return {
                 imagesUrl: { // 排版图片使用懒加载
-                    homeIcon: './static/img/home/navigation/task.png', // 任务
+                    homeIcon: './static/img/home/navigation/task_b.png', // 任务
                     rechargeIcon: './static/img/home/navigation/collection.png', // 统计
                     moreIcon: './static/img/home/navigation/team.png', // 团队
-                    myIcon: './static/img/home/navigation/my.png' // 我的
+                    myIcon: './static/img/home/navigation/my.png', // 我的
+                    addTask: './static/img/home/navigation/add.png'
                 }
             }
         },
@@ -46,24 +50,35 @@
                         this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 统计
                         this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 团队
                         this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                        this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                         break
                     case '/collection':
                         this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 任务
                         this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection_b.png' // 统计
                         this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 团队
                         this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                        this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                         break
                     case '/team':
                         this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 任务
                         this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 统计
                         this.imagesUrl.moreIcon = './static/img/home/navigation/team_b.png' // 团队
                         this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                        this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                         break
                     case '/my':
                         this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 任务
                         this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 统计
                         this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 团队
                         this.imagesUrl.myIcon = './static/img/home/navigation/my_b.png' // 我的
+                        this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
+                        break
+                    case '/addTask':
+                        this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 任务
+                        this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 统计
+                        this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 团队
+                        this.imagesUrl.myIcon = './static/img/home/navigation/my_b.png' // 我的
+                        this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                         break
                 }
             } else {
@@ -78,9 +93,10 @@
                     switch (val) {
                         case '/':
                             this.imagesUrl.homeIcon = './static/img/home/navigation/task_b.png' // 首页
-                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/recharge.png' // 充值
-                            this.imagesUrl.moreIcon = './static/img/home/navigation/more.png' // 更多
+                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 充值
+                            this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 更多
                             this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                            this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                             this.$router.push({ path: '/' })
                             // console.log(this.imagesUrl)
                             break
@@ -89,25 +105,38 @@
                             this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection_b.png' // 充值
                             this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 更多
                             this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                            this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                             this.$router.push({ path: '/Collection' })
                             // console.log(this.imagesUrl)
                             break
                         case '/team':
                             this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 首页
-                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/recharge.png' // 充值
+                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 充值
                             this.imagesUrl.moreIcon = './static/img/home/navigation/team_b.png' // 更多
                             this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                            this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                             this.$router.push({ path: '/Team' })
                             // console.log(this.imagesUrl)
                             break
                         case '/my':
                             this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 首页
-                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/recharge.png' // 充值
+                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 充值
                             this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 更多
-                            this.imagesUrl.myIcon = './static/img/home/navigation/click_my.png' // 我的
+                            this.imagesUrl.myIcon = './static/img/home/navigation/my_b.png' // 我的
+                            this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
                             this.$router.push({ path: '/My' })
                             // console.log(this.imagesUrl)
                             break
+                        case '/addTask':
+                            this.imagesUrl.homeIcon = './static/img/home/navigation/task.png' // 首页
+                            this.imagesUrl.rechargeIcon = './static/img/home/navigation/collection.png' // 充值
+                            this.imagesUrl.moreIcon = './static/img/home/navigation/team.png' // 更多
+                            this.imagesUrl.myIcon = './static/img/home/navigation/my.png' // 我的
+                            this.imagesUrl.addTask = './static/img/home/navigation/add.png' // 添加任务
+                            this.$router.push({ path: '/addTask' })
+                            // console.log(this.imagesUrl)
+                            break
+
                     }
                 } else {
                     console.log('不合法的传值')
@@ -133,6 +162,9 @@
                         case '/my':
                             this.clickChang(val)
                             // this.$router.push({ path: '/my' })
+                            break
+                        case '/addTask':
+                            this.clickChang(val)
                             break
                     }
                 } else {
@@ -170,6 +202,10 @@
     height: 45px;
     /* margin-left: 3px;
     background-color: #ccc; */
+  }
+  .add_task{
+    height: 45px!important;
+    width: 45px!important;
   }
   .bottomNavigation_li_public_content img {
     height: 24px;

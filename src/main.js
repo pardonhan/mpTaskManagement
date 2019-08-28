@@ -5,9 +5,11 @@ import weui from 'weui.js'
 import 'weui'
 import App from './App'
 import router from './router'
+import '../static/css/weuix.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$weui = weui
+
 /* eslint-disable no-new */
 
 new Vue({
