@@ -8,13 +8,10 @@
 <script>
 import bottomNavigation from '@/components/BottomNavigation'
 export default {
-  name: 'App'
-    ,
-    components: {
-        // shareContent,
-        bottomNavigation,
-        // pickerComponent,
-    }
+  name: 'App',
+  components: {
+      bottomNavigation
+  }
 }
 </script>
 
