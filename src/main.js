@@ -14,6 +14,7 @@ Vue.prototype.$weui = weui
 Vue.use(ElementUI);
 /* eslint-disable no-new */
 
+
 new Vue({
   el: '#app',
   router,
