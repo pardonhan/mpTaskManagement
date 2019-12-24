@@ -5,7 +5,10 @@
     </div>
     <taskStatusSelect/>
     <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-      <li v-for="i in count" class="infinite-list-item">任务{{ i }} <br>任务内容
+      <li v-for="i in count" class="infinite-list-item">
+        <div id="task_title"><span>任务{{ i }}</span></div>
+        <div id="task_content">任务内容任务内容任务内容任务内容任务内容</div>
+         <br>
       </li>
     </ul>
    <!--显示列表数据 滑动组件 -->
@@ -43,5 +46,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  #task_title{
+    display: flex;
+  }
+  #task_content{
+    display: flex;
+  }
 </style>

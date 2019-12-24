@@ -10,7 +10,7 @@
           <span class="weui-icon-success weui-icon-safe-warn"></span>
         </div>
         <div class="user_name">
-         <p class="name">韩凤麟</p>
+          <p class="name">韩凤麟</p>
           <p class="dept">智能业务中心</p>
         </div>
       </div>
